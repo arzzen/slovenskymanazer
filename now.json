@@ -17,6 +17,7 @@
     ],
     "routes": [
       {"src": "^/s3$", "methods":["POST"], "dest": "/api/handlers/post.js"},
-      {"src": "^/s3/.+$", "methods":["GET"], "dest": "/api/handlers/get.js"}
+      {"src": "^/s3/.+$", "methods":["GET"], "dest": "/api/handlers/get.js"},
+      {"src": "^/.*",  "dest": "/dist/index.html"}
     ]
   }
