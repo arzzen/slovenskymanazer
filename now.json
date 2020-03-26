@@ -13,6 +13,6 @@
     "routes": [
       {"src": "^/s3$", "methods":["POST"], "dest": "/api/post.js"},
       {"src": "^/s3/.+$", "methods":["GET"], "dest": "/api/get.js"},
-      {"src": "^/(.*)", "methods":["GET", "POST"], "dest": "index.html"}
+      {"src": "/", "methods":["GET", "POST"], "dest": "index.html"}
     ]
   }
