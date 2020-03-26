@@ -8,7 +8,8 @@
       "bucket_name": "@bucket_name",
       "access_key": "@access_key",
       "secret_key": "@secret_key",
-      "region": "@region"
+      "region": "@region",
+      "mongodb_uri": "@my-mongodb-uri"
     },
     "routes": [
       {"src": "^/s3$", "methods":["POST"], "dest": "/api/post.js"},
