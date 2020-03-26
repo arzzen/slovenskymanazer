@@ -1,6 +1,5 @@
 {
     "version": 2,
-    "public": true,
     "name": "slovenskymanazer",
     "alias": [
       "slovenskymanazer-app"
@@ -10,10 +9,5 @@
       "access_key": "@access_key",
       "secret_key": "@secret_key",
       "region": "@region"
-    },
-    "routes": [
-      {"src": "^/s3$", "methods":["POST"], "dest": "/api/handlers/post.js"},
-      {"src": "^/s3/.+$", "methods":["GET"], "dest": "/api/handlers/get.js"},
-      {"src": "^/.*",  "dest": "/dist/index.html"}
-    ]
+    }
   }
