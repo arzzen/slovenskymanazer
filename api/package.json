@@ -3,8 +3,8 @@
     "version": "1.0.0",
     "private": true,
     "scripts": {
-      "start-get": "micro-dev handlers/get.js",
-      "start-post": "micro-dev handlers/post.js",
+      "start-get": "micro-dev get.js",
+      "start-post": "micro-dev post.js",
       "test": "ava test.js"
     },
     "dependencies": {

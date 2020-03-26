@@ -1,6 +1,6 @@
 {
     "version": 1,
-    "name": "s3-medium",
+    "name": "slovenskymanazer-api",
     "engines": {
       "node": "9.x.x"
     },
@@ -10,9 +10,6 @@
         "max": 1
       }
     },
-    "alias": [
-      "s3-medium"
-    ],
     "env": {
       "bucket_name": "@bucket_name",
       "access_key": "@access_key",
