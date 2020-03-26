@@ -9,5 +9,15 @@
       "access_key": "@access_key",
       "secret_key": "@secret_key",
       "region": "@region"
-    }
+    },
+    "builds": [
+      {"src": "api/handlers/get.js", "use": "@now/node"},
+      {"src": "api/handlers/post.js", "use": "@now/node"},
+      {"src": ".", "use": "@now/node"}
+    ],
+    "routes": [
+      {"src": "^/s3$", "methods":["POST"], "dest": "/api/handlers/post.js"},
+      {"src": "^/s3/.+$", "methods":["GET"], "dest": "/api/handlers/get.js"},
+      {"src": "^/(.*)", "methods":["GET", "POST"], "dest": "/dist/index.html"}
+    ]
   }
