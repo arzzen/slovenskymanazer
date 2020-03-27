@@ -17,7 +17,11 @@ async function connectToDatabase(uri) {
 module.exports = async (req, res) => {
   const db = await connectToDatabase(process.env.mongodb_uri);
   const collection = await db.collection("manazer");
-  const post = await collection.find({}).toArray();
+
+//  const post = await collection.find({}).toArray();
+  const post = await collection.aggregate(
+    [ { $sample: { size: 1 } } ]
+  );
 
   res.status(200).json({ post });
 };

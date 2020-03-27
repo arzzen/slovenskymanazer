@@ -63,10 +63,10 @@ export default {
   methods: {
     onSubmit(e) {
       //alert(JSON.stringify(this.form))
-
       if (this.author && this.message) {
 
-        
+
+
 
         return true;
       }

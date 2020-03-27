@@ -19,8 +19,11 @@
   "dependencies": {
     "bootstrap": "^4.4.1",
     "core-js": "^3.6.4",
+    "dns": "^0.2.2",
     "jquery": "^3.4.1",
+    "module": "^1.2.5",
     "mongodb": "^3.5.5",
+    "mongodb-client-encryption": "^1.0.1",
     "popper.js": "^1.16.1",
     "vue": "^2.6.11",
     "vue-head": "^2.2.0",
