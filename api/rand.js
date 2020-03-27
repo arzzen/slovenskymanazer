@@ -21,7 +21,7 @@ module.exports = async (req, res) => {
 //  const post = await collection.find({}).toArray();
   const post = await collection.aggregate(
     [ { $sample: { size: 1 } } ]
-  );
+  ).toArray();
 
   res.status(200).json({ post });
 };
