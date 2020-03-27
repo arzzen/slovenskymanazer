@@ -23,5 +23,12 @@ module.exports = async (req, res) => {
     [ { $sample: { size: 1 } } ]
   ).toArray();
 
-  res.status(200).json({ post });
+  var data = {};
+  if(post) {
+    data.author = post[0].author;
+    data.message = post[0].message;
+    data.id = post[0].id
+  }
+
+  res.status(200).json({ data });
 };
