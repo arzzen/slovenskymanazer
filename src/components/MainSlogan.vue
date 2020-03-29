@@ -5,14 +5,14 @@
         <div class="container">
           <div class="row">
             <div class="col-md-12">
-              <h1 class="brand-heading">test</h1>
-              <p class="gm-err-message">autor</p>
+              <h1 class="brand-heading">{{ message }}</h1>
+              <p class="gm-err-message">{{ author }}</p>
               <a
-                href="<?=$urlpath?>"
                 class="btn btn-circle page-scroll"
                 data-toggle="tooltip"
                 data-placement="top"
                 title="Chcem ďaľšiu bombu!"
+                v-on:click="clickHandler"
               >
                 <i class="fa fa-refresh"></i>
               </a>
@@ -25,19 +25,22 @@
 </template>
 
 <script>
+import EventBus from "@/services/EventBus";
+
 export default {
   name: "MainSlogan",
   props: {
-    msg: String
+    author: String,
+    message: String
   },
-  data: function() {
-    return {
-      title: ""
-    };
+  methods: {
+    clickHandler (event) {
+      event.preventDefault();
+      this.$route.params.hash = undefined;
+      EventBus.$emit("slogan-event");
+    }
   },
-  // Usage with context the component
   head: {
-    // To use "this" in the component, it is necessary to return the object through a function
     title: function() {
       return {
         inner: this.title
@@ -54,7 +57,6 @@ export default {
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
 ul {
   list-style-type: none;

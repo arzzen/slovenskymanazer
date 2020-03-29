@@ -16,10 +16,6 @@ const routes = [
     component: Home,
   },
   {
-    path: '*',
-    component: Home
-  },
-  {
     path: "/add",
     name: "Add",
     component: () => import(/* webpackChunkName: "add" */ "../views/Add.vue")
@@ -29,7 +25,16 @@ const routes = [
     name: "About",
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/About.vue")
-  }
+  },
+  {
+    path: "/:hash",
+    name: "Slogan",
+    component: Home,
+  },
+  {
+    path: '*',
+    component: Home
+  },
 ];
 
 const router = new VueRouter({

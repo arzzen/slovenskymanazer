@@ -5,6 +5,11 @@
         <div class="container">
           <h1>Prispej aj ty!</h1>
           <form id="Add" @submit="onSubmit" method="post">
+
+            <div class="form-group" v-if="show.success">
+              <h4 class="text-success">Paráda, zaznamenané!</h4>
+            </div>
+
             <div class="form-group" v-if="show.errors">
               <b class="text-danger">Ups, zdá sa, že si niečo nesprávne vyplnil:</b>
               <ul>
@@ -48,13 +53,16 @@
 </template>
 
 <script>
+import SloganApi from "@/services/api/Slogan";
+
 export default {
   name: "Add",
   data() {
     return {
       errors: [],
       show: {
-        errors: false
+        errors: false,
+        success: false
       },
       author: null,
       message: null
@@ -62,13 +70,17 @@ export default {
   },
   methods: {
     onSubmit(e) {
-      //alert(JSON.stringify(this.form))
       if (this.author && this.message) {
-
-
-
-
-        return true;
+        SloganApi.postSlogan({
+          author: this.author,
+          message: this.message
+        })
+        .catch(error => console.log(error))
+        .finally(() => {
+          this.show.success = true;
+          this.author = this.message = '';
+        });
+        e.preventDefault();
       }
 
       this.errors = [];
@@ -81,6 +93,7 @@ export default {
       }
 
       if(this.errors.length > 0) {
+        this.show.success = false;
         this.show.errors = true;
       }
 
